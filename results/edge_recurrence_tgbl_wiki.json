@@ -1,0 +1,16 @@
+{
+    "dataset": "tgbl-wiki",
+    "total_test_edges": 23621,
+    "recurring_edges_count": 16757,
+    "recurring_edges_ratio": 0.709411117226197,
+    "novel_edges_count": 6864,
+    "novel_edges_ratio": 0.29058888277380296,
+    "edgebank_overall_mrr": 0.5710241198539734,
+    "edgebank_recurring_mrr": 0.672031044960022,
+    "edgebank_novel_mrr": 0.3244371712207794,
+    "tgn_overall_mrr": 0.3328,
+    "tgn_recurring_mrr": 0.3851494181536075,
+    "tgn_novel_mrr": 0.205,
+    "proposed_hybrid_mrr": 0.5363170153844075,
+    "gain_over_edgebank": -0.03470710446956593
+}
