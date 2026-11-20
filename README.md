@@ -110,5 +110,3 @@ graphs," NeurIPS Datasets and Benchmarks Track, vol. 36, 2023.
 Official code: https://github.com/shenyangHuang/TGB
 TODO: add DyGLib / other reused repositories.
 
-## 12. AI use
-TODO: state which tool, what for, and what you changed (same as the paper).
