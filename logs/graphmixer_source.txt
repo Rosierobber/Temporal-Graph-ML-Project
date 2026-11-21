@@ -1,3 +1,4 @@
-fpour/TGB_Baselines was cloned earlier in this session; its exact commit was not recorded.
-Remote HEAD when this note was written: d2022fae4a3311185f611bab733e267938251f42
-epochs per seed: 1
+fpour/TGB_Baselines commit: d2022fae4a3311185f611bab733e267938251f42
+epochs per seed: 5
+repo defaults: num_epochs=25, patience=10, test_interval_epochs=10
+published setup (TGB paper) does not state epochs
