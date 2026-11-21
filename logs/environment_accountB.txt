@@ -1,0 +1,8 @@
+python 3.13.16
+torch 2.11.0+cu130
+torch_geometric 2.8.1
+py-tgb 2.3.0
+platform Linux-6.18.55+-x86_64-with-glibc2.39
+GPUs:
+Tesla T4, 15360 MiB
+Tesla T4, 15360 MiB
