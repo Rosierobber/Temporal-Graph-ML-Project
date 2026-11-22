@@ -1,0 +1,144 @@
+INFO: Arguments: Namespace(data='tgbl-wiki', lr=0.0001, bs=200, k_value=10, num_epoch=30, seed=2, mem_dim=100, time_dim=100, emb_dim=100, tolerance=1e-06, patience=5, num_run=1)
+==========================================================
+=================*** TGN: LinkPropPred: tgbl-wiki ***=============
+==========================================================
+-------------------------------------------------------------------------------
+INFO: >>>>> Run: 0 <<<<<
+Epoch: 01, Loss: 1.2958, Training elapsed Time (s):  13.4970
+/kaggle/working/Temporal-Graph-ML-Project/scripts/tgn_wiki_perquery.py:168: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments.
+  "y_pred_neg": np.array(y_pred[1:, :].squeeze(dim=-1).cpu()),
+	Validation mrr:  0.0666
+	Validation: Elapsed time (s):  77.1540
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 02, Loss: 1.1827, Training elapsed Time (s):  13.3275
+	Validation mrr:  0.1155
+	Validation: Elapsed time (s):  76.9589
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 03, Loss: 1.1643, Training elapsed Time (s):  12.9260
+	Validation mrr:  0.1150
+	Validation: Elapsed time (s):  76.6080
+Epoch: 04, Loss: 1.1562, Training elapsed Time (s):  12.9009
+	Validation mrr:  0.1407
+	Validation: Elapsed time (s):  77.0397
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 05, Loss: 1.1527, Training elapsed Time (s):  13.4408
+	Validation mrr:  0.1351
+	Validation: Elapsed time (s):  78.0143
+Epoch: 06, Loss: 1.1465, Training elapsed Time (s):  13.0916
+	Validation mrr:  0.1587
+	Validation: Elapsed time (s):  77.1985
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 07, Loss: 1.1455, Training elapsed Time (s):  13.0383
+	Validation mrr:  0.1525
+	Validation: Elapsed time (s):  76.9671
+Epoch: 08, Loss: 1.1431, Training elapsed Time (s):  13.2208
+	Validation mrr:  0.1811
+	Validation: Elapsed time (s):  76.9604
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 09, Loss: 1.1380, Training elapsed Time (s):  13.0231
+	Validation mrr:  0.1881
+	Validation: Elapsed time (s):  77.1380
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 10, Loss: 1.1339, Training elapsed Time (s):  12.9424
+	Validation mrr:  0.1953
+	Validation: Elapsed time (s):  76.9758
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 11, Loss: 1.1356, Training elapsed Time (s):  13.2452
+	Validation mrr:  0.1872
+	Validation: Elapsed time (s):  78.1609
+Epoch: 12, Loss: 1.1295, Training elapsed Time (s):  13.9924
+	Validation mrr:  0.2317
+	Validation: Elapsed time (s):  78.7632
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 13, Loss: 1.1265, Training elapsed Time (s):  14.3872
+	Validation mrr:  0.2156
+	Validation: Elapsed time (s):  79.1998
+Epoch: 14, Loss: 1.1235, Training elapsed Time (s):  13.9914
+	Validation mrr:  0.2293
+	Validation: Elapsed time (s):  77.9630
+Epoch: 15, Loss: 1.1205, Training elapsed Time (s):  13.5096
+	Validation mrr:  0.2714
+	Validation: Elapsed time (s):  77.2208
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 16, Loss: 1.1202, Training elapsed Time (s):  12.9849
+	Validation mrr:  0.2738
+	Validation: Elapsed time (s):  77.4287
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 17, Loss: 1.1189, Training elapsed Time (s):  12.8817
+	Validation mrr:  0.2791
+	Validation: Elapsed time (s):  76.8892
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 18, Loss: 1.1167, Training elapsed Time (s):  13.0474
+	Validation mrr:  0.2799
+	Validation: Elapsed time (s):  77.0396
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 19, Loss: 1.1187, Training elapsed Time (s):  12.9742
+	Validation mrr:  0.2995
+	Validation: Elapsed time (s):  77.9920
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 20, Loss: 1.1164, Training elapsed Time (s):  14.6484
+	Validation mrr:  0.2958
+	Validation: Elapsed time (s):  78.4843
+Epoch: 21, Loss: 1.1155, Training elapsed Time (s):  13.1652
+	Validation mrr:  0.3050
+	Validation: Elapsed time (s):  77.9305
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 22, Loss: 1.1174, Training elapsed Time (s):  13.9496
+	Validation mrr:  0.2724
+	Validation: Elapsed time (s):  80.4911
+Epoch: 23, Loss: 1.1114, Training elapsed Time (s):  14.0719
+	Validation mrr:  0.3222
+	Validation: Elapsed time (s):  79.8134
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 24, Loss: 1.1131, Training elapsed Time (s):  15.0208
+	Validation mrr:  0.3307
+	Validation: Elapsed time (s):  80.0893
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 25, Loss: 1.1126, Training elapsed Time (s):  15.4170
+	Validation mrr:  0.3483
+	Validation: Elapsed time (s):  81.0015
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 26, Loss: 1.1146, Training elapsed Time (s):  14.5209
+	Validation mrr:  0.3241
+	Validation: Elapsed time (s):  80.7493
+Epoch: 27, Loss: 1.1124, Training elapsed Time (s):  14.9636
+	Validation mrr:  0.3423
+	Validation: Elapsed time (s):  80.1113
+Epoch: 28, Loss: 1.1150, Training elapsed Time (s):  14.4170
+	Validation mrr:  0.2712
+	Validation: Elapsed time (s):  79.5741
+Epoch: 29, Loss: 1.1100, Training elapsed Time (s):  13.9309
+	Validation mrr:  0.3723
+	Validation: Elapsed time (s):  78.9110
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+Epoch: 30, Loss: 1.1122, Training elapsed Time (s):  13.0548
+	Validation mrr:  0.3496
+	Validation: Elapsed time (s):  76.8482
+Train & Validation: Elapsed Time (s):  2755.4349
+INFO: load the model of epoch 29 from /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-wiki_2_0.pth
+>>> SAVED PER-QUERY TEST ARRAY (23621 queries) to /kaggle/working/Temporal-Graph-ML-Project/results/perquery/tgn_wiki_test_seed2.npy
+INFO: Test: Evaluation Setting: >>> ONE-VS-MANY <<< 
+	Test: mrr:  0.3290
+	Test: Elapsed Time (s):  77.5684
+INFO: >>>>> Run: 0, elapsed time:  2833.9355 <<<<<
+-------------------------------------------------------------------------------
+Overall Elapsed Time (s):  2834.3986
+==============================================================
