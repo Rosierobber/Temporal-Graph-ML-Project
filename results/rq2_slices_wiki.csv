@@ -1,0 +1,5 @@
+model,slice,n_queries,mrr
+tw_default_rho0.15,recurring,19799,0.680869996547699
+tw_default_rho0.15,novel,3822,0.0019925956148654222
+full_R-EdgeBank,recurring,19799,0.8642776608467102
+full_R-EdgeBank,novel,3822,0.001972944475710392
