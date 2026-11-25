@@ -1,0 +1,36 @@
+INFO: Arguments: Namespace(data='tgbl-review', lr=0.0001, bs=200, k_value=10, num_epoch=5, seed=4, mem_dim=100, time_dim=100, emb_dim=100, tolerance=1e-06, patience=5, num_run=1)
+==========================================================
+=================*** TGN: LinkPropPred: tgbl-review ***=============
+==========================================================
+-------------------------------------------------------------------------------
+INFO: >>>>> Run: 0 <<<<<
+Epoch: 01, Loss: 1.1484, Training elapsed Time (s):  1278.2993
+/kaggle/working/Temporal-Graph-ML-Project/scripts/tgn_review_perquery.py:169: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments.
+  "y_pred_neg": np.array(y_pred[1:, :].squeeze(dim=-1).cpu()),
+	Validation mrr:  0.3109
+	Validation: Elapsed time (s):  2119.0609
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-review_4_0.pth
+Epoch: 02, Loss: 1.1452, Training elapsed Time (s):  1308.7796
+	Validation mrr:  0.3062
+	Validation: Elapsed time (s):  2115.2001
+Epoch: 03, Loss: 1.1444, Training elapsed Time (s):  1276.3468
+	Validation mrr:  0.3226
+	Validation: Elapsed time (s):  2038.4411
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-review_4_0.pth
+Epoch: 04, Loss: 1.1437, Training elapsed Time (s):  1277.6631
+	Validation mrr:  0.3102
+	Validation: Elapsed time (s):  2106.4491
+Epoch: 05, Loss: 1.1434, Training elapsed Time (s):  1368.7046
+	Validation mrr:  0.3104
+	Validation: Elapsed time (s):  2155.2933
+Train & Validation: Elapsed Time (s):  17044.7320
+INFO: load the model of epoch 3 from /kaggle/working/Temporal-Graph-ML-Project/scripts/saved_models//TGN_tgbl-review_4_0.pth
+INFO: Test: Evaluation Setting: >>> ONE-VS-MANY <<< 
+	Test: mrr:  0.3729
+	Test: Elapsed Time (s):  2165.0959
+INFO: >>>>> Run: 0, elapsed time:  19222.8492 <<<<<
+-------------------------------------------------------------------------------
+Overall Elapsed Time (s):  19223.8845
+==============================================================
