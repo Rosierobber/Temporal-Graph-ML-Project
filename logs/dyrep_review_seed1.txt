@@ -1,0 +1,42 @@
+INFO: Arguments: Namespace(data='tgbl-review', lr=0.0001, bs=200, k_value=10, num_epoch=5, seed=1, mem_dim=100, time_dim=100, emb_dim=100, tolerance=1e-06, patience=5, num_run=1)
+==========================================================
+=================*** DyRep: LinkPropPred: tgbl-review ***=============
+==========================================================
+INFO: Create directory /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_results
+-------------------------------------------------------------------------------
+INFO: >>>>> Run: 0 <<<<<
+INFO: Create directory /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models/
+Epoch: 01, Loss: 1.1565, Training elapsed Time (s):  1614.8065
+/kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/dyrep.py:160: DeprecationWarning: __array__ implementation doesn't accept a copy keyword, so passing copy=False failed. __array__ must implement 'dtype' and 'copy' keyword arguments.
+  "y_pred_neg": np.array(y_pred[1:, :].squeeze(dim=-1).cpu()),
+	Validation mrr:  0.1489
+	Validation: Elapsed time (s):  1433.8039
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models//DyRep_tgbl-review_1_0.pth
+Epoch: 02, Loss: 1.1536, Training elapsed Time (s):  1662.9679
+	Validation mrr:  0.1626
+	Validation: Elapsed time (s):  1433.3249
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models//DyRep_tgbl-review_1_0.pth
+Epoch: 03, Loss: 1.1542, Training elapsed Time (s):  1694.8819
+	Validation mrr:  0.1900
+	Validation: Elapsed time (s):  1427.6760
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models//DyRep_tgbl-review_1_0.pth
+Epoch: 04, Loss: 1.1529, Training elapsed Time (s):  1661.5374
+	Validation mrr:  0.1536
+	Validation: Elapsed time (s):  1417.5134
+Epoch: 05, Loss: 1.1523, Training elapsed Time (s):  1677.8121
+	Validation mrr:  0.1906
+	Validation: Elapsed time (s):  1443.0144
+INFO: save a checkpoint...
+INFO: save the model to /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models//DyRep_tgbl-review_1_0.pth
+Train & Validation Total Elapsed Time (s):  15468.3982
+INFO: load the model of epoch 5 from /kaggle/working/Temporal-Graph-ML-Project/third_party/TGB/examples/linkproppred/tgbl-review/saved_models//DyRep_tgbl-review_1_0.pth
+INFO: Test: Evaluation Setting: >>> ONE-VS-MANY <<< 
+	Test: mrr:  0.1730
+	Test: Elapsed Time (s):  1445.7307
+INFO: >>>>> Run: 0, elapsed time:  16923.4556 <<<<<
+-------------------------------------------------------------------------------
+Overall Elapsed Time (s):  16925.3822
+==============================================================

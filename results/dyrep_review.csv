@@ -1,0 +1,2 @@
+seed,status,epoch_cap,epochs_run,best_epoch,best_val_mrr,test_mrr,train_val_time_s,test_time_s,wall_s,peak_gpu_mem_mib,last_batch,train_roc_auc,failed
+1,done,5,5,5,0.1906,0.173,15467.3,1445.7307,16960,4597,,,
