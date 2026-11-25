@@ -1,0 +1,3 @@
+2026-11-25 07:12 seeds=[1, 3, 4] epoch_cap={'tgn': 5, 'dyrep': 5, 'graphmixer': 1} gpus=[0] graphmixer_probe=True gm_seeds=[1] timeouts_h={'tgn': 7.0, 'dyrep': 7.0, 'graphmixer': 1.0}
+  defaults of TGB scripts otherwise: lr 1e-4, bs 200, patience 5, tolerance 1e-6, mem/time/emb dim 100.
+  peak_gpu_mem_mib = whole-GPU memory.used from nvidia-smi sampled every 15 s while the job ran (includes CUDA context; approximate).
