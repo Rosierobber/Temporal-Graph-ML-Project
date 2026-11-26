@@ -1,112 +1,49 @@
-# ML_Term_Project
-# Learning on temporal graphs: do complex models beat simple memory?
-Background: 
-Transactions, messages, reviews and flights form graphs that change every second. Temporal graph
-networks such as TGN are built for this, but the Temporal Graph Benchmark (Huang et al., NeurIPS
-2023) showed that a simple memorisation heuristic, EdgeBank, is surprisingly hard to beat on some
-datasets, and that random negative sampling had made earlier results look better than they were.
-Research Questions
-1. RQ1: How do TGN, DyRep and GraphMixer compare with EdgeBank under TGB's realistic
-negative sampling?
-2. RQ2: On which kinds of graphs (recurring vs novel edges) do learned models help most?
-3. RQ3: How do training cost and memory scale from a small to a medium TGB dataset?
-Benchmark and Data
+# Temporal-Graph-ML-Project
 
-Temporal Graph Benchmark (Huang et al., NeurIPS 2023 Datasets and Benchmarks), Python package py-
-tgb. Use tgbl-wiki (small) and tgbl-review or tgbl-coin (medium) for dynamic link prediction, with the
-official splits, negatives and MRR evaluator.
-Baselines to Reproduce: 
-Baselines: EdgeBank (both variants), TGN, DyRep and GraphMixer, using the TGB or DyGLib
-implementations. At least 3 seeds per model.
+Advanced ML term project, Topic 3: do complex temporal graph models beat simple memory?
+Benchmark: Temporal Graph Benchmark (TGB; Huang et al., NeurIPS 2023 D&B), datasets tgbl-wiki (small) and tgbl-review (medium), official splits, negatives and MRR evaluator.
+Author: [name, roll number]
 
-Page 9 of 11
-Direction for Your Contribution
-Propose and test one change, for example combining EdgeBank's memory with a learned model, a
-recency-aware negative sampler for training, or a lighter memory module that keeps MRR at lower cost.
-Sections Your Paper Must Contain
-1. Introduction: dynamic graphs in finance, social media and e-commerce
-2. Related work: continuous-time temporal GNNs and evaluation pitfalls
-3. Problem formulation: dynamic link prediction and the MRR metric
-4. Datasets: statistics and novelty/recurrence of edges
-5. Proposed method: your modification, with a diagram
-6. Experimental setup: official splits, negatives, seeds, hardware
-7. Results: MRR per dataset, mean ± std over seeds
-8. Cost analysis: training time and memory
-9. Discussion: when memorisation is enough, threats to validity
-Watch Out For
-Use only TGB's official negative samples and evaluator. Self-made random negatives are exactly the flaw
-TGB was built to remove.
-Anchor Reference
-• S. Huang et al., "Temporal graph benchmark for machine learning on temporal graphs," in
-Advances in NeurIPS, Datasets and Benchmarks Track, vol. 36, 2023.
+## Contribution
+R-EdgeBank keeps EdgeBank's memory but ranks candidates by how recently the pair was last seen (pairs never seen are ranked last).
+It has no trainable parameters and no hyperparameters. Ablation: EdgeBank (window) -> recency inside the window -> recency without a window.
 
-Term project, Advanced Machine Learning (MSCS, Fall 2026), Kinnaird College for Women.
-Author: <Rabia Habib, F26MPCS005> | Instructor: Dr. Sidra Zafar
+## Results (test MRR, mean +- sample std over seeds)
+tgbl-wiki:
+    EdgeBank inf / window   0.4947 / 0.5710 (deterministic; published 0.495 / 0.571)
+    TGN                     0.3328 +- 0.0124 (n=3); per-query reruns 0.3297 +- 0.0201 (n=3); published 0.396 +- 0.060
+    DyRep                   0.0399 +- 0.0143 (n=3); published 0.050 +- 0.017
+    GraphMixer (5 epochs)   0.1577 +- 0.0325 (seeds 1,3,4); seed 2 failed twice (0.002); published 0.118 +- 0.002
+    R-EdgeBank (mine)       0.7248 (recency inside window: 0.7069)
+tgbl-review:
+    EdgeBank inf / window   0.0229 / 0.0253 (deterministic; matches the published values)
+    TGN (5-epoch cap)       0.3779 +- 0.0110 (n=3); published 0.349 +- 0.020
+    DyRep (5-epoch cap)     0.1733 +- 0.0372 (n=3); published 0.220 +- 0.030
+    R-EdgeBank (mine)       0.0284
+    GraphMixer              not run (compute budget)
+Recurring / novel split on tgbl-wiki (query-time definition): see results/rq2_slices_wiki.csv.
 
-## 1. Overview
-Do complex temporal graph models beat simple memory under TGB's realistic
-evaluation? This repository contains code to (a) reproduce published baselines
-on the Temporal Graph Benchmark (TGB) and (b) evaluate my proposed
-contribution: TODO (one sentence describing your method).
+## Reproduce the tables
+    bash reproduce_main_table.sh
+This rebuilds the comparison tables from the stored per-seed CSV files (notes/baseline_comparison_table.md, notes/review_comparison_table.md). It does not retrain.
+Training commands (run from third_party/TGB with PYTHONPATH=.):
+    python examples/linkproppred/tgbl-wiki/edgebank.py --data tgbl-wiki --seed S [--mem_mode fixed_time_window]
+    python examples/linkproppred/tgbl-wiki/tgn.py --data tgbl-wiki --seed S
+    python examples/linkproppred/tgbl-review/tgn.py --data tgbl-review --seed S --num_epoch 5 --num_run 1
+    python examples/linkproppred/tgbl-review/dyrep.py --data tgbl-review --seed S --num_epoch 5 --num_run 1
+GraphMixer: fpour/TGB_Baselines at commit d2022fae4a3311185f611bab733e267938251f42:
+    python train_tgb_lpp_original.py --dataset_name tgbl-wiki --model_name GraphMixer --num_epochs 5 --num_runs 1 --seed S --gpu G
+Method: scripts/redgebank.py (sweep and test code is in notebooks/main_experiments.ipynb). scripts/tgn_wiki_perquery.py is TGB's tgn.py plus a hook that saves per-query reciprocal ranks.
+Seeds: 1-3 (TGN, DyRep, EdgeBank); 1-4 (GraphMixer); 1, 3, 4 (review TGN, DyRep).
 
-## 2. Repository structure
-```
-configs/      # hyperparameters per model/dataset
-scripts/      # training and evaluation scripts
-results/      # per-seed CSV files (one row per run)
-logs/         # raw logs, hardware and version info
-reproduce_main_table.sh   # TODO: regenerates the main results table
-requirements.txt
-```
-## 3. Setup
-```bash
-conda create -n tgb python=3.9 -y && conda activate tgb
-pip install -r requirements.txt
-```
-Software versions: Python TODO, PyTorch TODO, PyG TODO, py-tgb TODO.
-Hardware: TODO (GPU model, memory, CPU, RAM).
+## Environment and compute
+Kaggle, two Tesla T4 GPUs, two accounts (logs/environment.txt, logs/environment_accountB.txt); Python 3.13, torch 2.11.0, torch_geometric 2.8.1, py-tgb 2.3.0, torch_scatter 2.1.2. Stored wiki TGN/DyRep runs: see logs/versions.txt.
+Time per run: GraphMixer wiki about 6.5 h (about 19,000 s train+val, 3,750 s test); TGN wiki 0.5-0.8 h; TGN review about 5.4 h; DyRep review about 4.5-4.7 h; R-EdgeBank about 8 s per wiki test pass on CPU. TGN review epoch 1: 1,203 s training + 2,108 s validation.
+Peak GPU memory (review): TGN about 6.1 GB, DyRep about 4.6 GB. Parameter counts: not measured.
 
-## 4. Data
-Datasets: tgbl-wiki (small) and TODO (medium) from TGB. They download
-automatically on first run with TGB's official splits and official negative
-samples. I use only TGB's official negatives and MRR evaluator.
-Datasets are used under their own licences (see the TGB paper, Appendix B).
-Data is not redistributed in this repository.
-
-## 5. Baselines
-EdgeBank (tw and infinite), TGN, DyRep, GraphMixer, using TODO (TGB examples /
-DyGLib). Reused code is in `third_party/` or marked in commit history; my
-changes are in `src/` (TODO).
-
-## 6. Proposed method
-TODO: short description and where it lives in the code.
-
-## 7. Running experiments
-```bash
-# example: TODO replace with your actual commands
-python scripts/run.py --model tgn --dataset tgbl-wiki --seed 1
-```
-Seeds used: TODO (for example 1, 2, 3). EdgeBank is deterministic.
-Hyperparameters were tuned on validation data only; the test set was used
-once for the final numbers.
-
-## 8. Reproducing the main results table
-```bash
-bash reproduce_main_table.sh
-```
-Expected output: TODO (table of test MRR, mean ± std over seeds).
-
-## 9. Results
-TODO: paste your table (mean ± std over 3+ seeds) and compare with published
-TGB numbers.
-
-## 10. Compute report
-TODO: training time, GPU hours, parameter count, peak memory per model.
-
-## 11. Citation and acknowledgements
-This work uses the Temporal Graph Benchmark:
-S. Huang et al., "Temporal graph benchmark for machine learning on temporal
-graphs," NeurIPS Datasets and Benchmarks Track, vol. 36, 2023.
-Official code: https://github.com/shenyangHuang/TGB
-TODO: add DyGLib / other reused repositories.
-
+## Deviations and limitations
+- GraphMixer: 5 epochs (repo default 25; the published setup does not state epochs); seed 2 did not train in two attempts (train ROC AUC 0.50).
+- Review TGN/DyRep: 5-epoch cap; GraphMixer not run.
+- Logs for review TGN seed 3 and DyRep seeds 3 and 4 were lost when a session ended; values come from console output (notes/review_runs_provenance.md).
+- R-EdgeBank on review: window ratio tuned on the first 100,000 validation edges only. EdgeBank and R-EdgeBank are deterministic (no std).
+- My surprise-index computations do not reproduce the paper's 0.108 (see the paper).
