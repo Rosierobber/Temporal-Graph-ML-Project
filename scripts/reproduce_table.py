@@ -35,7 +35,7 @@ for m in PUB:
     pv, pvs, pt, pts = PUB[m]; mv, sv, mt, stt, n = mine[m]
     pubv = f"{pv:.3f}" if pvs is None else f"{pv:.3f} ± {pvs:.3f}"
     pubt = f"{pt:.3f}" if pts is None else f"{pt:.3f} ± {pts:.3f}"
-    gap = "n/a (deterministic)" if pts is None else (f"{(mt - pt) / pts:+.2f}" if n else "n/a")
+    gap = "n/a (deterministic)" if pts is None else ("not comparable (see text)" if m == "GraphMixer" else (f"{(mt - pt) / pts:+.2f}" if n else "n/a"))
     out.append(f"| {m} | {pubv} | {pubt} | {fmt(mv, sv)} | {fmt(mt, stt)} | {n} | {gap} |")
 out.append("")
 out.append(f"Published: TGB paper Table 2a, 5 runs. Mine: official TGB negatives/evaluator; "
