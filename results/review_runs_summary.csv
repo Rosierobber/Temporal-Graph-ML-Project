@@ -1,0 +1,7 @@
+model,seed,epochs,best_val_mrr,test_mrr,hours,peak_gpu_mem_mib,raw_log_in_repo
+TGN,1,5,0.3329,0.3905,5.46,6079,yes
+TGN,3,5,0.33,0.3702,5.42,6091,no: console output only
+TGN,4,5,0.3226,0.3729,5.35,6091,yes
+DyRep,1,5,0.1906,0.173,4.71,4597,yes
+DyRep,3,5,0.2134,0.2107,4.53,4597,no: console output only
+DyRep,4,5,0.1786,0.1363,4.51,4597,no: console output only
